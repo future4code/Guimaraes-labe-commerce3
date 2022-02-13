@@ -11,9 +11,9 @@ import Carrinho from './components/Carrinho/index';
 function App() {
   return (
     <S.Container>
-      <Header />
+      {/* <Header /> */}
       <Produto />
-      <Carrinho />      
+      {/* <Carrinho />       */}
     </S.Container>
   );
 }
