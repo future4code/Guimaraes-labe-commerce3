@@ -5,15 +5,35 @@ export const Container = styled.div`
     width: 400px;
     height: 200px;
     margin: 10px 20px;
-    border: 1px solid black;
+    border: 1px solid teal;
 
     border-radius: 5px;
 
+    box-shadow: 5px -3px teal;
+
     :hover{
-        border: 2px solid blue;
+        border: 2px solid teal;
     }
 
     /* background: #101AF2; */
+
+    left: 260px;
+
+    top: 5%;
+
+    button{
+        position: absolute;
+        left: 80%;
+        top: 83%;   
+
+        border-radius: 5px;
+        background: teal;
+
+        :hover{
+            cursor: pointer;
+        }
+    }
+    
 `;
 
 export const ContainerProduto = styled.div`
@@ -25,6 +45,11 @@ export const ContainerProduto = styled.div`
 
     margin: 20px 20px;
 
+`;
+
+export const ContainerCard = styled.div`
+    position: relative;
+    height: calc(400px * 5);
 `;
 
 export const Title = styled.span`
@@ -55,7 +80,7 @@ export const Imagem = styled.img`
 
 export const InfoMoney = styled.strong`
     position: absolute;
-    left: 75%;
+    left: 3%;
     top: 80%;
 
     :hover{
