@@ -10,29 +10,35 @@ import Camiseta from '../../assets/Back.webp'
 import ProdutoNav from '../ProdutoNav/index';
 import Button from '../../shared/Button/index';
 
+//List
+import { ListaProdutos } from '../../utils/List';
+
 
 class Produto extends React.Component{
     render(){
         return(<>            
             <S.ContainerCard>
                 <ProdutoNav /> 
-                <S.Container>
-                    <S.ContainerProduto>
-                        <S.Title>{this.props.title}</S.Title>
-                    </S.ContainerProduto>
-                    
-                    {/* <S.ProdutoDescription>Camiseta produzida pela NASA</S.ProdutoDescription>  */}
+               
+                {ListaProdutos.map( ( produto, index ) => {
+                    return( <div key={index}>
+                            <S.Container index={index}>
+                            <S.ContainerProduto>
+                                <S.Title>{produto.title}</S.Title>
+                            </S.ContainerProduto>
+                            <S.Imagem 
+                                src={Camiseta} 
+                                alt="camiseta"
+                            />
+                            <S.InfoMoney>{produto.price}</S.InfoMoney>
+                            <Button>Adicionar</Button>
+                        </S.Container>
 
-                    {/* {/* <span>R$ 18,00</span> */}
-                    <S.Imagem 
-                        src={this.props.img} 
-                        alt="camiseta"
-                    />
-
-                    <S.InfoMoney>{this.props.price}</S.InfoMoney>
-                    <Button>Adicionar</Button>
-            </S.Container>
+                    </div>)
+                })}
             </S.ContainerCard>
+
+
             </>
         )
     }

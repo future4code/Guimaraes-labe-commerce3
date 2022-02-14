@@ -17,7 +17,12 @@ export const Container = styled.div`
 
     /* background: #101AF2; */
 
-    left: 260px;
+    left: ${props => props.index === undefined || props.index === 0? 
+        '260px' : (260 + ((400+20) * props.index)) +'px'
+    };
+
+    margin-right: 20px;
+
 
     top: 5%;
 
