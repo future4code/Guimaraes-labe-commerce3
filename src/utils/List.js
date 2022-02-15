@@ -1,32 +1,42 @@
-export const ListaProdutos = [
+const RoupasEspaciais = [
     {
-        categoria: 'Roupas espaciais',
         title: 'Camisa A',
-        price: 'R$ 1.450,00',
+        price: '1.450,00',
         url: 'Front.webp',
         qtd: 0,
     },
     {
-        categoria: 'Roupas espaciais',
         title: 'Camisa B',
-        price: 'R$ 1.450,00',
+        price: '600,00',
         url: 'Front.webp',
         qtd: 0,
     },
 
     {
-        categoria: 'Roupas espaciais',
         title: 'Camisa C',
-        price: 'R$ 1.450,00',
+        price: '300,00',
         url: 'Front.webp',
         qtd: 0,
     },
 
     {
-        categoria: 'Roupas espaciais',
         title: 'Camisa D',
-        price: 'R$ 1.450,00',
+        price: '450,00',
         url: 'Front.webp',
         qtd: 0,
     }
-]
+];
+
+const SatelitesAntigos = { }
+
+const CamisetaEspaciais = { }
+
+const ViagensEspaciais = { }
+
+const Meteoritos = { }
+
+const BriquedosInfatis = { }
+
+const NavesFoguestesOnibusEspaciais = { }
+
+export { RoupasEspaciais, SatelitesAntigos, CamisetaEspaciais, ViagensEspaciais, Meteoritos, BriquedosInfatis, NavesFoguestesOnibusEspaciais }

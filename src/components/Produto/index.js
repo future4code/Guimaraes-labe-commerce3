@@ -11,7 +11,7 @@ import ProdutoNav from '../ProdutoNav/index';
 import Button from '../../shared/Button/index';
 
 //List
-import { ListaProdutos } from '../../utils/List';
+import { RoupasEspaciais } from '../../utils/List';
 
 
 class Produto extends React.Component{
@@ -20,7 +20,7 @@ class Produto extends React.Component{
             <S.ContainerCard>
                 <ProdutoNav /> 
                
-                {ListaProdutos.map( ( produto, index ) => {
+                {RoupasEspaciais.map( ( produto, index ) => {
                     return( <div key={index}>
                             <S.Container index={index}>
                             <S.ContainerProduto>
