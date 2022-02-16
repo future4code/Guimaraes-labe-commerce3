@@ -1,11 +1,15 @@
 import React from 'react';
 
-class Input extends React.Component{
+import * as S from './styles';
+
+class Button extends React.Component{
     render(){
         return(<>
-            Input
+            <S.InputTextField>
+                {props.title}
+            </S.InputTextField>
         </>)
     }
 }
 
-export default Input;
+export default Button;
