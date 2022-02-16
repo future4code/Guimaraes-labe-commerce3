@@ -19,23 +19,23 @@ class Produto extends React.Component{
         return(<>            
             <S.ContainerCard>
                 <ProdutoNav /> 
-               
+				<S.ContainerGrid>
                 {ListaProdutos.map( ( produto, index ) => {
-                    return( <div key={index}>
-                            <S.Container index={index}>
-                            <S.ContainerProduto>
-                                <S.Title>{produto.title}</S.Title>
-                            </S.ContainerProduto>
-                            <S.Imagem 
-                                src={Camiseta} 
-                                alt="camiseta"
-                            />
-                            <S.InfoMoney>{produto.price}</S.InfoMoney>
-                            <Button>Adicionar</Button>
-                        </S.Container>
-
+                    return( <div key={index}>						
+	                            <S.Container index={index}>
+	                            <S.ContainerProduto>
+	                                <S.Title>{produto.title}</S.Title>
+	                            </S.ContainerProduto>
+	                            <S.Imagem 
+	                                src={Camiseta} 
+	                                alt="camiseta"
+	                            />
+	                            <S.InfoMoney>{produto.price}</S.InfoMoney>
+	                            <Button>Adicionar</Button>
+	                        </S.Container>
                     </div>)
                 })}
+				</S.ContainerGrid>					
             </S.ContainerCard>
 
 
