@@ -7,7 +7,7 @@ export const Container = styled.div`
     border: 1px solid black;
 
     width: 250px;
-    height: 1000px;
+    height: 1150px;
 
     margin-left: 10px;
 

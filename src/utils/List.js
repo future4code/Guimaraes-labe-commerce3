@@ -28,5 +28,75 @@ export const ListaProdutos = [
         price: 'R$ 1.450,00',
         url: 'Front.webp',
         qtd: 0,
+    },
+
+    {
+        categoria: 'Roupas espaciais',
+        title: 'Camisa D',
+        price: 'R$ 1.450,00',
+        url: 'Front.webp',
+        qtd: 0,
+    },
+
+    {
+        categoria: 'Roupas espaciais',
+        title: 'Camisa D',
+        price: 'R$ 1.450,00',
+        url: 'Front.webp',
+        qtd: 0,
+    }
+	,
+
+    {
+        categoria: 'Roupas espaciais',
+        title: 'Camisa D',
+        price: 'R$ 1.450,00',
+        url: 'Front.webp',
+        qtd: 0,
+    }
+	,
+
+    {
+        categoria: 'Roupas espaciais',
+        title: 'Camisa D',
+        price: 'R$ 1.450,00',
+        url: 'Front.webp',
+        qtd: 0,
+    }
+	,
+
+    {
+        categoria: 'Roupas espaciais',
+        title: 'Camisa D',
+        price: 'R$ 1.450,00',
+        url: 'Front.webp',
+        qtd: 0,
+    }
+	,
+
+    {
+        categoria: 'Roupas espaciais',
+        title: 'Camisa D',
+        price: 'R$ 1.450,00',
+        url: 'Front.webp',
+        qtd: 0,
+    }
+	,
+
+    {
+        categoria: 'Roupas espaciais',
+        title: 'Camisa D',
+        price: 'R$ 1.450,00',
+        url: 'Front.webp',
+        qtd: 0,
+    }
+	,
+
+    {
+        categoria: 'Roupas espaciais',
+        title: 'Camisa D',
+        price: 'R$ 1.450,00',
+        url: 'Front.webp',
+        qtd: 0,
     }
 ]

@@ -1,26 +1,28 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    position: absolute;
+    position: relative;
     width: 400px;
     height: 200px;
-    margin: 10px 20px;
+    margin: 10px 20px 60px 20px;
     border: 1px solid teal;
+
 
     border-radius: 5px;
 
-    box-shadow: 5px -3px teal;
+    box-shadow: 5px -3px grey;
 
     :hover{
-        border: 2px solid teal;
+        border: 5px solid teal;
+		box-shadow: none;
     }
 
     /* background: #101AF2; */
 
-    left: ${props => props.index === undefined || props.index === 0? 
+    /*left: ${props => props.index === undefined || props.index === 0? 
         '260px' : (260 + ((400+20) * props.index)) +'px'
     };
-
+*/
     margin-right: 20px;
 
 
@@ -28,17 +30,23 @@ export const Container = styled.div`
 
     button{
         position: absolute;
-        left: 80%;
-        top: 83%;   
+        left: 78%;
+        top: 5%;   
 
         border-radius: 5px;
-        background: teal;
+        background: grey;
 
+		height: 30px;
+		width: 80px;
         :hover{
             cursor: pointer;
+			color: white;
         }
+
+		:active{
+			color: blue;
+		}
     }
-    
 `;
 
 export const ContainerProduto = styled.div`
@@ -97,5 +105,20 @@ export const ProdutoDescription = styled.span`
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    
+`;
+
+export const ContainerGrid = styled.div`
+	position: absolute;
+	width: ((400 * 3) +   (20 * 3 ) )+'px';
+	height: 1150px;
+	top: 5%;
+	left: 11%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+
+	border: 1px solid teal;
+	border-radius: 5px;
+	box-shadow: 5px -3px teal;
+
 `;
