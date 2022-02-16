@@ -13,7 +13,8 @@ export const Container = styled.div`
     box-shadow: 5px -3px grey;
 
     :hover{
-        border: 2px solid teal;
+        border: 5px solid teal;
+		box-shadow: none;
     }
 
     /* background: #101AF2; */
@@ -29,15 +30,22 @@ export const Container = styled.div`
 
     button{
         position: absolute;
-        left: 80%;
-        top: 83%;   
+        left: 78%;
+        top: 5%;   
 
         border-radius: 5px;
-        background: teal;
+        background: grey;
 
+		height: 30px;
+		width: 80px;
         :hover{
             cursor: pointer;
+			color: white;
         }
+
+		:active{
+			color: blue;
+		}
     }
 `;
 
@@ -79,7 +87,6 @@ export const Imagem = styled.img`
     :hover{
         width: 280px;
         height: 300px;
-		background-size: under;
     }
 
 `;
