@@ -9,16 +9,11 @@ import Produto from './components/Produto/index';
 import Carrinho from './components/Carrinho/index';
 
 class App extends React.Component{
-state = {
-  produto: [],
-  carrinho: [],
-}
-
   render(){
     return (
         <S.Container>
-          {/* <Header />*/}
-          <Produto />
+          <Header />
+          {/* <Produto /> */}
           {/* <Carrinho />*/}
         </S.Container>
       );
