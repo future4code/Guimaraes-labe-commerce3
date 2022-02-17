@@ -10,7 +10,8 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "styled-components": "^5.3.3",
-    "surge": "^0.23.1"
+    "surge": "^0.23.1",
+    "uuid4": "^2.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
