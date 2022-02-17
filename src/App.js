@@ -12,8 +12,9 @@ class App extends React.Component{
   render(){
     return (
         <S.Container>
-          <Produto />
-          <Carrinho />
+          <Header />
+          {/* <Produto />
+          <Carrinho /> */}
         </S.Container>
       );
     }
