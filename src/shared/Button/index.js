@@ -5,7 +5,7 @@ import * as S from './styles';
 class Button extends React.Component{
     render(){
         return(<>
-            <S.ButtonTextField>
+            <S.ButtonTextField onClick={this.props.onClick}>
                 {this.props.children}
             </S.ButtonTextField>
         </>)

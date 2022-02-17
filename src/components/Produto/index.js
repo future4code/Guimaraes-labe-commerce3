@@ -15,6 +15,16 @@ import { ListaProdutos } from '../../utils/List';
 
 
 class Produto extends React.Component{
+
+	state = {
+		produto: [],
+		carrinho: [],
+	  }
+
+	handleAddProdutoCarrinho = (produtos) => {
+		console.log("Meus produtos: ", produtos);
+	}
+
     render(){
         return(<>            
             <S.ContainerCard>
@@ -31,7 +41,7 @@ class Produto extends React.Component{
 	                                alt="camiseta"
 	                            />
 	                            <S.InfoMoney>{produto.price}</S.InfoMoney>
-	                            <Button>Adicionar</Button>
+	                            <Button onClick={() => this.handleAddProdutoCarrinho(produto)}>Adicionar</Button>
 	                        </S.Container>
                     </div>)
                 })}

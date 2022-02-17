@@ -112,7 +112,7 @@ export const ContainerGrid = styled.div`
 	width: ((400 * 3) +   (20 * 3 ) )+'px';
 	height: 1150px;
 	top: 5%;
-	left: 11%;
+	left: 290px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(4, 1fr);
