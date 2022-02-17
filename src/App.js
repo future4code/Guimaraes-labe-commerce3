@@ -12,7 +12,6 @@ class App extends React.Component{
   render(){
     return (
         <S.Container>
-          <Header />
           <Produto />
           <Carrinho />
         </S.Container>
