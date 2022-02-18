@@ -45,7 +45,7 @@ class Produto extends React.Component{
 	                                src={Camiseta} 
 	                                alt="camiseta"
 	                            />
-	                            <S.InfoMoney>{produto.price}</S.InfoMoney>
+	                            <S.InfoMoney>R$ {produto.price}</S.InfoMoney>
 	                            <Button onClick={() => this.handleAddProdutoCarrinho(produto)}>Adicionar</Button>
 	                        </S.Container>
                     </div>)
