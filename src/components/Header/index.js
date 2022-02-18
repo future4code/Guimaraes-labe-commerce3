@@ -15,7 +15,8 @@ const Container = styled.div`
     width: auto;
     height: 70px;
     border: 1px solid black;
-    background-color: #6D6DF2; 
+    background-color: #6D6DF2;
+    padding: 1em
 
     
 `;
@@ -36,13 +37,25 @@ const Logo = styled.div`
 const Pesquisa = styled.div`
     display: flex;
     height: 35px;
-    padding: 15px 0;
+    padding: 18px 0;
     border-radius: 0.5em; 
-    justify-content: center;
+    justify-content: space-between;
 
     img{
         height: 20px;
         width: 20px;
+    }
+
+    button{
+        background-color: #6700D9;
+        border: 1px solid #1E0040;
+        border-radius: 0.2em;
+    }
+
+    input{
+        width: 400px;
+        border: 1px solid #1E0040;
+        border-radius: 0.2em;
     }
 `;
 
@@ -51,13 +64,9 @@ const CarrinhoCompras = styled.div`
     /* border: 1px solid blue; */
     display: flex;
     justify-content: right;
-    padding-right: 50px;
+    padding-right: 20px;
     height: 50px;
-    padding-top: 30px;
-/* 
-    margin: 5px;
-    padding: 5px; */
-    /* height: 20em; */
+    padding-top: 16px;
  
 `;
 
@@ -73,8 +82,11 @@ class Header extends React.Component{
                     </Logo>
 
                     <Pesquisa className='pesquisa'>
-                        <input type="texto" name='pesquisa' id='pesquisa' placeholder='Faça sua busca' required/>
-                        <button><img src={IconeLupa}/> </button>            
+                        <input type="search" name='pesquisa' id='pesquisa' method="submit" placeholder='Faça sua busca' required/>
+                        <button><img src={IconeLupa}/> </button> 
+                        <p>Preço:</p>
+                        <button></button>   
+                        <button></button>        
                     </Pesquisa>
 
                     <CarrinhoCompras className='carrinho'>
