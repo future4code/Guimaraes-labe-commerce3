@@ -1,8 +1,7 @@
 import React,{ useState } from 'react';
 
 import styled from 'styled-components';
-import LogoAmazon from '../../assets/logo-amazon'
-import IconeLupa from '../../assets/icone-lupa'
+import LogoSpace from '../../assets/logo.png'
 
 //icon
 import { BsFillCartCheckFill, BsSearch } from 'react-icons/bs';
@@ -12,11 +11,10 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
-    width: auto;
-    height: 100px;
+    // width: auto;
+    // height: auto;
     border: 1px solid black;
-    background-color: #6D6DF2; 
-    border-radius: 5px;
+    background-color: #22705A; 
     border-style: none;
 
     
@@ -27,16 +25,25 @@ const Logo = styled.div`
     padding: 20px 50px 20px 50px;
 
     width: 96.03px;
-    height: 60px;
+    height: 80px;
+
+    img{
+        display: flex;
+        height: 180px;
+        width: 180px;
+
+    }
 `;
 
 const Pesquisa = styled.div`
     display: flex;
     height: 40px;
-    padding: 30px 0;
     border-radius: 0.5em; 
     justify-content: center;
-
+    border: 1px solid whitesmoke;
+    padding: 0.2em;
+    top: 50%;
+       
     img{
         height: 20px;
         width: 20px;
@@ -47,28 +54,32 @@ const Pesquisa = styled.div`
         border-radius: 5px;
         border-style: none;
         padding-left: 30px;
+       
     }
 
     button{
-        width: 50px;
+        width: 30px;
         border-radius: 5px;
         border-style: none;
-        margin-left: 3px;
-
-        :hover{
-            background-color: grey;
+        margin-left: 1px;
+        background-color: white;
+        cursor: pointer;
+        background: none;
+        color: whitesmoke;
+        align-items: center;
+    :hover{
+        background-color: white;
+        color: black
         }
     }
 `;
 
-
 const CarrinhoCompras = styled.div`
-    /* border: 1px solid blue; */
-    display: flex;
-    justify-content: right;
-    padding-right: 50px;
-    height: 50px;
-    padding-top: 25px;
+        display: flex;
+        justify-content: right;
+        padding-right: 50px;
+        height: 50px;
+        padding-top: 25px;
 
     h3{
         position: absolute;
@@ -86,6 +97,19 @@ const CarrinhoCompras = styled.div`
  
 `;
 
+// const MinMax = styled.div`
+//         width: 30px;
+//         height: 40px;
+//         display: flex;
+
+//     p{
+//         align-items: center;
+//         justify-content: center;
+//     }    
+
+
+// `;
+
 
 
 class Header extends React.Component{
@@ -94,13 +118,19 @@ class Header extends React.Component{
         return(<>
             <Container className='header'>
                     <Logo className='logo'>
-                        <img src={LogoAmazon}/>
+                        <img src={LogoSpace}/>
                     </Logo>
 
                     <Pesquisa className='pesquisa'>
                         <input type="texto" name='pesquisa' id='pesquisa' placeholder='Faça sua busca' required/>
-                        <button>< BsSearch size={23}/></button>            
+                        <button>< BsSearch size={23}/></button>
+                                  
                     </Pesquisa>
+                    {/* <MinMax>
+                        <input type="texto" name='Min' id='pesquisa' placeholder='Min' required/>
+                        <p>-</p>
+                        <input type="texto" name='Max' id='pesquisa' placeholder='Max' required/>
+                    </MinMax> */}
 
                     <CarrinhoCompras className='carrinho' count={item}>
                         
