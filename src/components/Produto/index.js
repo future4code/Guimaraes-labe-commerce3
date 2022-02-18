@@ -18,7 +18,8 @@ import { ListaProdutos } from '../../utils/List';
 class Produto extends React.Component{
 
 	state = {
-		totalItemCarrinho: 0
+		totalItemCarrinho: 0,
+		carrinho: []
 	  }
 
 	handleAddProdutoCarrinho = (produtos) => {
@@ -27,6 +28,12 @@ class Produto extends React.Component{
 		const totalItens = Number(item) + 1
 		localStorage.setItem('itemCarrinho', totalItens)
 		this.setState({ totalItemCarrinho: totalItens });
+		this.setState({ carrinho: [...this.state.carrinho, produtos] })
+		localStorage.setItem('carrinho', JSON.stringify(this.state.carrinho));		
+	}
+
+	componentDidUpdate(){
+		localStorage.setItem('carrinho', JSON.stringify(this.state.carrinho));
 	}
 
     render(){
