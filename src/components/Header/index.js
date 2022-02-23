@@ -5,7 +5,7 @@ import LogoSpace from '../../assets/logo.png'
 
 //icon
 import { BsFillCartCheckFill, BsSearch } from 'react-icons/bs';
-
+// import Produto from '../Produto';
 
 const Container = styled.div`
     display: grid;
@@ -113,9 +113,36 @@ const CarrinhoCompras = styled.div`
 
 
 class Header extends React.Component{
+
+    state = {
+        carrinho: 0,
+        possuiItemNoCarrinho: localStorage.getItem('possuiItemNoCarrinho'),
+        gotoCarrinho: this.props.gotoCarrinho,
+        isLoading: this.props.isLoading
+    }
+
+    handleNavToCarringo = () => {
+        localStorage.setItem('gotoCarrinho', true);
+        // this.setState({ gotoCarrinho: true })
+        // this.setState({ gotoCarrinho: true })
+    }
+
+    componentDidMount(){
+        // localStorage.setItem('possuiItemNoCarrinho', false);
+    }
+
+    componentDidUpdate(){
+        // localStorage.setItem('gotoCarrinho', true);
+    }
+
     render(){
-        const item = localStorage.getItem('itemCarrinho');
-        return(<>
+        const item = localStorage.getItem('totalItemCarrinho');
+
+        // if(localStorage.getItem('car') === '1'){
+        //     return <Produto />
+        // }
+
+        return(<>            
             <Container className='header'>
                     <Logo className='logo'>
                         <img src={LogoSpace}/>
@@ -135,8 +162,8 @@ class Header extends React.Component{
                     <CarrinhoCompras className='carrinho' count={item}>
                         
                         <h3>Carrinho</h3> 
-                        <strong>{item? item : 0 }</strong>
-                        <a href='#'><BsFillCartCheckFill size={40} color={'black'}/></a>
+                        <strong>{item}</strong>
+                        <a href='' onClick={this.handleNavToCarringo}><BsFillCartCheckFill size={40} color={'black'}/></a>
                     </CarrinhoCompras>
             </Container>
         </>)
