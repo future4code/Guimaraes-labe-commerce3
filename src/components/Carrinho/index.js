@@ -6,10 +6,15 @@ const paginaCarrinho = 'carrinho';
 
 function Carrinho () {
 
-  const [carrinho, setCarrinho] = useState([]);
+  const [carrinho, setCarrinho] = useState(() => {
+    const carrinho = localStorage.getItem("carrinho");
+    const initialValue = JSON.parse(carrinho);
+    return initialValue || "";
+  }
+  );
   const [pagina, setPagina] = useState(paginaProdutos)
   const [valorTotalProdutos, setValorTotalProduto] = useState(0);
-
+  
   const [item] = useState ([
     {
       name: 'Camiseta Branca Nasa',

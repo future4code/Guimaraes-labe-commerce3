@@ -5,19 +5,18 @@ import LogoSpace from '../../assets/logo.png'
 
 //icon
 import { BsFillCartCheckFill, BsSearch } from 'react-icons/bs';
-
+// import Produto from '../Produto';
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
-    // width: auto;
-    // height: auto;
+    width: 100%;
+    height: 100%;
     border: 1px solid black;
     background-color: #22705A; 
     border-style: none;
-
-    
+        
 `;
 
 const Logo = styled.div`
@@ -42,15 +41,14 @@ const Pesquisa = styled.div`
     justify-content: center;
     border: 1px solid whitesmoke;
     padding: 0.2em;
-    top: 50%;
-       
+         
     img{
         height: 20px;
         width: 20px;
     }
 
     input{
-        width: 500px;
+        width: 400px;
         border-radius: 5px;
         border-style: none;
         padding-left: 30px;
@@ -97,46 +95,84 @@ const CarrinhoCompras = styled.div`
  
 `;
 
-// const MinMax = styled.div`
-//         width: 30px;
-//         height: 40px;
-//         display: flex;
+const MinMax = styled.div`
+      
+        padding-left: 15px;
+        
+    input{
+            width: 40px;
+            height: 35px;
+            border-radius: 5px;
+            border-style: none;
+            padding-right: 20px;
+    }
 
-//     p{
-//         align-items: center;
-//         justify-content: center;
-//     }    
-
-
-// `;
-
+    button{
+        
+        width: 20px;
+        height: 35px;
+        border-radius: 5px;
+        border-style: none;
+        padding-right: 20px;
+    }
+`;
 
 
 class Header extends React.Component{
+
+    state = {
+        carrinho: 0,
+        possuiItemNoCarrinho: localStorage.getItem('possuiItemNoCarrinho'),
+        gotoCarrinho: this.props.gotoCarrinho,
+        isLoading: this.props.isLoading
+    }
+
+    handleNavToCarringo = () => {
+        localStorage.setItem('gotoCarrinho', true);
+        // this.setState({ gotoCarrinho: true })
+        // this.setState({ gotoCarrinho: true })
+    }
+
+    componentDidMount(){
+        // localStorage.setItem('possuiItemNoCarrinho', false);
+    }
+
+    componentDidUpdate(){
+        // localStorage.setItem('gotoCarrinho', true);
+    }
+
     render(){
-        const item = localStorage.getItem('itemCarrinho');
-        return(<>
+        const item = localStorage.getItem('totalItemCarrinho');
+
+        // if(localStorage.getItem('car') === '1'){
+        //     return <Produto />
+        // }
+
+        return(<>            
             <Container className='header'>
                     <Logo className='logo'>
                         <img src={LogoSpace}/>
                     </Logo>
+
+                    <MinMax>
+                        
+                        <input type="texto" name='Min' id='pesquisa' placeholder='Min' required/> -
+                        <input type="texto" name='Max' id='pesquisa' placeholder='Max' required/>
+                        <button> OK </button>
+
+                    </MinMax>
 
                     <Pesquisa className='pesquisa'>
                         <input type="texto" name='pesquisa' id='pesquisa' placeholder='Faça sua busca' required/>
                         <button>< BsSearch size={23}/></button>
                                   
                     </Pesquisa>
-                    {/* <MinMax>
-                        <input type="texto" name='Min' id='pesquisa' placeholder='Min' required/>
-                        <p>-</p>
-                        <input type="texto" name='Max' id='pesquisa' placeholder='Max' required/>
-                    </MinMax> */}
 
                     <CarrinhoCompras className='carrinho' count={item}>
                         
                         <h3>Carrinho</h3> 
-                        <strong>{item? item : 0 }</strong>
-                        <a href='#'><BsFillCartCheckFill size={40} color={'black'}/></a>
+                        <strong>{item}</strong>
+                        <a href='' onClick={this.handleNavToCarringo}><BsFillCartCheckFill size={40} color={'black'}/></a>
                     </CarrinhoCompras>
             </Container>
         </>)

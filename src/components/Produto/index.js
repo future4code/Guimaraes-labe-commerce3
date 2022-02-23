@@ -13,36 +13,71 @@ import Header from '../Header/index';
 
 //List
 import { ListaProdutos } from '../../utils/List';
+import Carrinho from '../Carrinho';
 
 
 class Produto extends React.Component{
 
 	state = {
-		totalItemCarrinho: 0,
-		carrinho: []
+		totalItemCarrinho: localStorage.getItem('totalItemCarrinho'),
+		possuiItemNoCarrinho: localStorage.getItem('possuiItemNoCarrinho'),
+		carrinho: [],
+		gotoCarrinho: localStorage.getItem('gotoCarrinho'),
+		isLoading: false, //localStorage.getItem('isLoading'),
 	  }
 
 	handleAddProdutoCarrinho = (produtos) => {
 		console.log("Meus produtos: ", produtos);
-		const item = localStorage.getItem('itemCarrinho');
+		const item = localStorage.getItem('totalItemCarrinho');
 		const totalItens = Number(item) + 1
-		localStorage.setItem('itemCarrinho', totalItens)
+		localStorage.setItem('totalItemCarrinho', totalItens)
+		localStorage.setItem('isLoading', true)
 		this.setState({ totalItemCarrinho: totalItens });
 		this.setState({ carrinho: [...this.state.carrinho, produtos] })
-		localStorage.setItem('carrinho', JSON.stringify(this.state.carrinho));		
+		localStorage.setItem('carrinho', JSON.stringify(this.state.carrinho));
+		
+		this.showCarrinho();
 	}
+
+	showCarrinho = () => { 
+		this.setState({ possuiItemNoCarrinho: true, isLoading: true });
+		localStorage.setItem('possuiItemNoCarrinho', true);
+	}
+
+
 
 	componentDidUpdate(){
 		localStorage.setItem('carrinho', JSON.stringify(this.state.carrinho));
 	}
 
+	componentDidMount(){	
+		if(!localStorage.getItem('totalItemCarrinho')){
+			localStorage.setItem('totalItemCarrinho', 0);
+			this.setState({ totalItemCarrinho: 0 })
+		}
+
+		// this.setState({ gotoCarrinho: localStorage.getItem('gotoCarrinho')});
+	}
+
+
     render(){
-        return(<>    
-			<Header totalItemCarrinho={this.state.totalItemCarrinho} />        
+
+		const { gotoCarrinho } = this.state;
+
+        return(<>  
+			<Header 
+				totalItemCarrinho={this.state.totalItemCarrinho} 
+				isLoading={this.props.isLoading}
+				gotoCarrinho={this.props.gotoCarrinho}
+				
+			/>
             <S.ContainerCard>
                 <ProdutoNav /> 
 				<S.ContainerGrid>
-                {ListaProdutos.map( ( produto, index ) => {
+				{gotoCarrinho ? ( 
+					<Carrinho />
+				) : (			
+                ListaProdutos.map( ( produto, index ) => {
                     return( <div key={index}>						
 	                            <S.Container index={index}>
 	                            <S.ContainerProduto>
@@ -56,7 +91,9 @@ class Produto extends React.Component{
 	                            <Button onClick={() => this.handleAddProdutoCarrinho(produto)}>Adicionar</Button>
 	                        </S.Container>
                     </div>)
-                })}
+                })
+
+				)}
 				</S.ContainerGrid>					
             </S.ContainerCard>
 
