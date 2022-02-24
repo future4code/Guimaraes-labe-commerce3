@@ -12,10 +12,10 @@ export const Container = styled.div`
 
     box-shadow: 5px -3px grey;
 
-    :hover{
+    /* :hover{ */
         border: 5px solid teal;
 		box-shadow: none;
-    }
+    /* } */
 
     /* background: #101AF2; */
 
@@ -84,10 +84,10 @@ export const Imagem = styled.img`
 
     transform: translate(-50%, -50%);
 
-    :hover{
+    /* :hover{
         width: 280px;
         height: 300px;
-    }
+    } */
 
 `;
 
