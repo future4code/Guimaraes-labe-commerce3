@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Button from '../../shared/Button';
 
+//css
+import * as S from './styles';
+
 const paginaProdutos = 'produtos';
 const paginaCarrinho = 'carrinho';
 
@@ -39,59 +42,79 @@ function Carrinho () {
 
   };
 
-  const removerProduto = (itemRemover) => {
-    setCarrinho (carrinho.filter(item => item !== itemRemover))
-    setValorTotalProduto( valorTotalProdutos - itemRemover.custo );
-  };
+  // const removerProduto = (itemRemover) => {
+  //   setCarrinho (carrinho.filter(item => item !== itemRemover))
+  //   setValorTotalProduto( valorTotalProdutos - itemRemover.custo );
+  // };
 
 
-  const navigateTo = (proximaPagina) => {
-    setPagina(proximaPagina);
-  };
+  // const navigateTo = (proximaPagina) => {
+  //   setPagina(proximaPagina);
+  // };
 
 
-  const renderProdutos = () => (
-    <><h1>Produtos</h1>
-    <div className="produtos">
-    {item.map((item, index) =>(
-       <div className="produtoNovo" key={index}>
-       <h3>{item.name}</h3>
-       <h4>{item.custo}</h4>
-       <img src={item.imagem}/>
-       <button onClick={() => adicionarCarrinho(item)}>Adicionar Produto</button>
-     </div>
+  // const renderProdutos = () => (
+  //   <><h1>Produtos</h1>
+  //   <div className="produtos">
+  //   {item.map((item, index) =>(
+  //      <div className="produtoNovo" key={index}>
+  //      <h3>{item.name}</h3>
+  //      <h4>{item.custo}</h4>
+  //      <S.Imagem src={item.imagem} />
+  //      <button onClick={() => adicionarCarrinho(item)}>Adicionar Produto</button>
+  //    </div>
     
-    )) }
-    </div>
-    </>
-  );
+  //   )) }
+  //   </div>
+  //   </>
+  // );
 
-  const renderCarrinho = () => (
-    <><h1>Carrinho</h1>
-    <div className="produtos">
-    {carrinho.map((item, index) =>(
-       <div className="produtoNovo" key={index}>
-       <h3>{item.name}</h3>
-       <h4>{item.custo}</h4>
-       <img src={item.imagem}/>
-       <button onClick={() => removerProduto(item)}>Remover Produto</button>
-     </div>
+  // const renderCarrinho = () => (
+  //   <><h1>Carrinho</h1>
+  //   <div className="produtos">
+  //   {carrinho.map((item, index) =>(
+  //      <div className="produtoNovo" key={index}>
+  //      <h3>{item.name}</h3>
+  //      <h4>{item.custo}</h4>
+  //      <S.Imagem src={item.url}/>
+  //      <button onClick={() => removerProduto(item)}>Remover Produto</button>
+  //    </div>
     
-    )) }
-    </div>
-    </>
-
-  );
+  //   )) }
+  //   </div>
+  //   </>
+  // );
 
   return (<div className="App">
-    <header>
-      <Button onClick={() => navigateTo(paginaCarrinho)}>Ir para o carrinho de compras ({carrinho.length})</Button>
-      <Button onClick={() => navigateTo(paginaProdutos)}>Ver produtos no carrinho ({carrinho.length})</Button>
-      <h3>{valorTotalProdutos}</h3>
-      </header>
+      {/* <header> */}
+      {/* <Button onClick={() => navigateTo(paginaCarrinho)}>Ir para o carrinho de compras ({carrinho.length})</Button> */}
+      {/* <Button onClick={() => navigateTo(paginaProdutos)}>Ver produtos no carrinho ({carrinho.length})</Button> */}
+      {/* <h3>{valorTotalProdutos}</h3>
+      </header> */}
 
-      {pagina === paginaProdutos && renderProdutos()}
-      {pagina === paginaCarrinho && renderCarrinho()}
+      {/* {pagina === paginaProdutos && renderProdutos()} */}
+      {/* {pagina === paginaCarrinho && renderCarrinho()} */}
+
+      <h1>Carrinho</h1>
+      <S.Container className="produtos">
+        {carrinho.map((item, index) =>(
+          <S.ProdutoCarrinho className="produtoNovo" key={index}>
+            <div>
+              <S.Imagem src={item.url}/>
+              <strong>{item.title}</strong>
+              <span>R$: {item.price}</span>
+            </div>
+          
+          <div>
+            <input />
+            <a>Adicionar</a>
+            <a>Remover</a>
+          </div>
+          </S.ProdutoCarrinho>
+    
+        ))}
+    </S.Container>
+
        </div>
       );
 }

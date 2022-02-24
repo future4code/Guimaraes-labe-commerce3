@@ -10,10 +10,13 @@ import Camiseta from '../../assets/Back.webp'
 import ProdutoNav from '../ProdutoNav/index';
 import Button from '../../shared/Button/index';
 import Header from '../Header/index';
+import Carrinho from '../Carrinho';
 
 //List
 import { ListaProdutos } from '../../utils/List';
-import Carrinho from '../Carrinho';
+import { Camisetas } from '../../utils/Camisetas';
+
+
 
 
 class Produto extends React.Component{
@@ -77,14 +80,14 @@ class Produto extends React.Component{
 				{gotoCarrinho ? ( 
 					<Carrinho />
 				) : (			
-                ListaProdutos.map( ( produto, index ) => {
+					Camisetas.map( ( produto, index ) => {
                     return( <div key={index}>						
 	                            <S.Container index={index}>
 	                            <S.ContainerProduto>
 	                                <S.Title>{produto.title}</S.Title>
 	                            </S.ContainerProduto>
 	                            <S.Imagem 
-	                                src={Camiseta} 
+	                                src={produto.url} 
 	                                alt="camiseta"
 	                            />
 	                            <S.InfoMoney>R$ {produto.price}</S.InfoMoney>
